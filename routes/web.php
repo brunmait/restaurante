@@ -7,6 +7,7 @@ use App\Http\Controllers\ReporteController;
 use App\Http\Controllers\CajeroController;
 use App\Http\Controllers\VentaController;
 use App\Http\Controllers\CajeroPanelController;
+use App\Http\Controllers\DuenoController;
 
 
 
@@ -89,6 +90,16 @@ Route::get('/ventas/export/excel', [VentaController::class, 'exportExcel'])->nam
 Route::post('/reportes/subir', [ReporteController::class, 'subirReporte'])->name('reportes.subir');
 Route::get('/admin/reportes/ver/{id}', [ReporteController::class, 'ver'])->name('reportes.ver');
 Route::get('/admin', [ReporteController::class, 'panel'])->name('admin');
+
+
+//dueño
+Route::middleware(['auth', 'can:dueno'])->group(function () {
+    Route::get('/panel-dueno', [DuenoController::class, 'index'])->name('dueno.panel');
+    Route::get('/dueno/ventas', [DuenoController::class, 'ventas'])->name('dueno.ventas');
+    Route::get('/dueno/export-pdf', [DuenoController::class, 'exportPdf'])->name('dueno.exportPdf');
+    Route::get('/dueno/export-excel', [DuenoController::class, 'exportExcel'])->name('dueno.exportExcel');
+});
+
 
 
 

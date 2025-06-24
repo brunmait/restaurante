@@ -96,7 +96,8 @@
     <!-- NAVBAR RESPONSIVE -->
     <nav class="navbar navbar-expand-lg navbar-dark header">
         <div class="container-fluid">
-            <a class="navbar-brand fw-bold" style="font-family: 'Georgia', serif;" href="#">🍽️ Rincón Chaqueño</a>
+    <a class="navbar-brand fw-bold fs-2" style="font-family: 'Georgia', serif;" href="#">🍽️ Rincón Chaqueño</a>
+
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navContent">
                 <span class="navbar-toggler-icon"></span>
@@ -104,9 +105,9 @@
 
             <div class="collapse navbar-collapse justify-content-end" id="navContent">
                 <ul class="navbar-nav mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link mx-2" href="#menu">Menú</a></li>
-                    <li class="nav-item"><a class="nav-link mx-2" href="#nosotros">Sobre Nosotros</a></li>
-                    <li class="nav-item"><a class="nav-link mx-2" href="#contacto">Contacto</a></li>
+                    <li class="nav-item fs-3"><a class="nav-link mx-2" href="#menu">Menú</a></li>
+                    <li class="nav-item fs-3"><a class="nav-link mx-2" href="#nosotros">Sobre Nosotros</a></li>
+                    <li class="nav-item fs-3"><a class="nav-link mx-2" href="#contacto">Contacto</a></li>
                     <li class="nav-item dropdown">
                         <button class="btn btn-danger dropdown-toggle ingresar-btn" type="button" data-bs-toggle="dropdown">
                             Ingresar
@@ -114,7 +115,7 @@
                         <ul class="dropdown-menu dropdown-menu-end">
                             <li><a class="dropdown-item" href="{{ route('login') }}">Iniciar sesión</a></li>
                             <li><a class="dropdown-item" href="{{ route('registro') }}">Registrarse</a></li>
-                            <li><a class="dropdown-item" href="{{ route('productos.invitado') }}">Ver productos</a></li>
+                            <li><a class="dropdown-item" href="{{ route('productos.invitado') }}"></a></li>
                         </ul>
                     </li>
                 </ul>
@@ -123,47 +124,74 @@
     </nav>
 
     <!-- HERO -->
-    <div class="container text-center hero-section">
-        <h2>PLATOS TÍPICOS</h2>
-        <p class="lead">DEGUSTE DE LOS DELICIOSOS PLATOS DE LA CASA</p>
-    </div>
+<div class="container text-center hero-section">
+    <h2>PLATOS TÍPICOS</h2>
+    <p class="lead">DEGUSTE DE LOS DELICIOSOS PLATOS DE LA CASA</p>
+</div>
 
-    <!-- SECCIÓN DE TARJETAS -->
-    <div class="container mb-5">
-        <div class="row g-4">
+<!-- SECCIÓN DE TARJETAS -->
+<div class="container mb-5">
+    <div class="row g-4">
+        <!-- Columna Izquierda -->
+        <div class="col-md-6">
             <!-- Pollo a la Leña -->
-            <div class="col-md-6">
-                <div class="offer-card">
-                    <img src="{{ asset('images/pollo.jpg') }}" alt="Pollo a la Leña">
-                    <div class="card-body">
-                        <h4 class="card-title text-black">POLLO A LA LEÑA</h4>
-                        <p class="card-text">Disfruta del mejor pollo al fuego lento con sabor tradicional.</p>
-                        <a href="#" class="btn btn-outline-danger">Comienza a disfrutar</a>
-                    </div>
+            <div class="offer-card bg-white bg-opacity-75 rounded shadow h-80">
+                <img src="{{ asset('images/pollo.jpg') }}" alt="Pollo a la Leña" class="img-fluid rounded-top">
+                <div class="card-body text-center">
+                    <h4 class="text-black fw-bold">POLLO A LA LEÑA</h4>
+                    <p>Disfruta del mejor pollo al fuego lento con sabor tradicional.</p>
+                    <a href="#" class="btn btn-outline-danger">Comienza a disfrutar</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Columna Derecha -->
+        <div class="col-md-6 d-flex flex-column justify-content-between">
+            <!-- Reservaciones -->
+            <div class="offer-card text-white rounded shadow mb-4" style="background: rgb(105, 0, 0);">
+                <div class="card-body text-center">
+                    <h3 class="fw-bold">RESERVACIONES</h3>
+                    <p>Reserva tu mesa para una experiencia única.</p>
+                    <a href="#" class="btn btn-light">Reserva ya</a>
                 </div>
             </div>
 
-            <!-- Reservaciones -->
-            <div class="col-md-6">
-                <div class="offer-card bg-success text-white">
-                    <div class="card-body text-center">
-                        <h3>RESERVACIONES</h3>
-                        <p>Reserva tu mesa para una experiencia única.</p>
-                        <a href="#" class="btn btn-light">Reserva ya</a>
-                    </div>
-                </div>
-
-                <!-- Chancho a la Cruz -->
-                <div class="offer-card mt-4">
-                    <img src="{{ asset('images/chancho-0000.jpg') }}" alt="Chancho a la Cruz">
-                    <div class="card-body text-center">
-                        <h4 class="text-black">CHANCHO A LA CRUZ</h4>
-                        <a href="#" class="btn btn-warning">Hacer Pedido</a>
-                    </div>
+            <!-- Chancho a la Cruz debajo -->
+            <div class="offer-card bg-white bg-opacity-75 rounded shadow">
+                <img src="{{ asset('images/chancho-0000.jpg') }}" alt="Chancho a la Cruz" class="img-fluid rounded-top">
+                <div class="card-body text-center">
+                    <h4 class="text-black fw-bold">CHANCHO A LA CRUZ</h4>
+                    <a href="#" class="btn btn-dark">Hacer Pedido</a>
                 </div>
             </div>
         </div>
     </div>
+</div>
+<!-- PIE DE PÁGINA / FOOTER -->
+<footer class="mt-5 text-white py-4" style="background: rgb(105, 0, 0);">
+    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center text-center text-md-start">
+        
+        <!-- LOGO -->
+        <div class="mb-3 mb-md-0">
+            <h4 class="fw-bold" style="font-family: 'Georgia', serif;"></h4>
+        </div>
+
+        <!-- ENLACES -->
+        <div class="mb-3 mb-md-0">
+            <a href="#" class="text-white text-decoration-none mx-2">Política de Privacidad</a>
+            <a href="#" class="text-white text-decoration-none mx-2">Términos de Uso</a>
+            <span class="mx-2">© 2025 Rincón Chaqueño</span>
+        </div>
+
+        <!-- REDES SOCIALES -->
+        <div>
+            <a href="#" class="text-white text-decoration-none mx-2"><i class="bi bi-linkedin fs-5"></i></a>
+            <a href="#" class="text-white text-decoration-none mx-2"><i class="bi bi-instagram fs-5"></i></a>
+            <a href="#" class="text-white text-decoration-none mx-2"><i class="bi bi-facebook fs-5"></i></a>
+        </div>
+    </div>
+</footer>
+
 
     <!-- Scripts de Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
