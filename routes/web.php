@@ -52,6 +52,9 @@ Route::middleware(['auth', 'can:admin'])->group(function () {
     // Exportar PDF y Excel
     Route::get('cajeros-export/pdf', [CajeroController::class, 'exportPdf'])->name('cajeros.exportPdf');
     Route::get('cajeros-export/excel', [CajeroController::class, 'exportExcel'])->name('cajeros.exportExcel');
+    
+    // Ruta para estadísticas del dashboard
+    Route::get('/admin/stats', [ReporteController::class, 'getStats'])->name('admin.stats');
 });
 
 

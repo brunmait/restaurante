@@ -8,10 +8,13 @@ class Reporte extends Model
 {
     protected $fillable = ['user_id', 'archivo'];
 
-   public function usuario()
-{
-    return $this->belongsTo(User::class, 'user_id'); // 👈 importante que sea 'user_id'
-}
-
-
+    public function usuario()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+    
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }

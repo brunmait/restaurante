@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'Panel de Productos')
+@section('title', 'Gestionar Productos')
 
 @section('content')
 <div class="container-fluid">
@@ -8,12 +8,19 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center">
-                    <h4><i class="bi bi-box-seam"></i> Panel de Productos</h4>
+                    <h4><i class="bi bi-box-seam"></i> Gestión de Productos</h4>
                     <a href="{{ route('crud.create') }}" class="btn btn-primary">
                         <i class="bi bi-plus-circle"></i> Agregar Producto
                     </a>
                 </div>
                 <div class="card-body">
+                    @if(session('success'))
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            {{ session('success') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        </div>
+                    @endif
+
                     <div class="table-responsive">
                         <table class="table table-striped table-hover">
                             <thead class="table-dark">
