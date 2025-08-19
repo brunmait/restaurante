@@ -26,8 +26,15 @@ class ProductoController extends Controller
     }
 
     public function store(Request $request) {
+        $request->validate([
+            'nombre' => 'required|string|max:255',
+            'descripcion' => 'nullable|string',
+            'precio' => 'required|numeric|min:0',
+            'stock' => 'required|integer|min:0'
+        ]);
+
         Producto::create($request->all());
-        return redirect()->route('crud.index');
+        return redirect()->route('crud.index')->with('success', 'Producto agregado exitosamente');
     }
 
     public function edit($id) {
@@ -36,13 +43,21 @@ class ProductoController extends Controller
     }
 
     public function update(Request $request, $id) {
+        $request->validate([
+            'nombre' => 'required|string|max:255',
+            'descripcion' => 'nullable|string',
+            'precio' => 'required|numeric|min:0',
+            'stock' => 'required|integer|min:0'
+        ]);
+
         $producto = Producto::findOrFail($id);
         $producto->update($request->all());
-        return redirect()->route('crud.index');
+        return redirect()->route('crud.index')->with('success', 'Producto actualizado exitosamente');
     }
 
     public function destroy($id) {
-        Producto::destroy($id);
-        return back();
+        $producto = Producto::findOrFail($id);
+        $producto->delete();
+        return redirect()->route('crud.index')->with('success', 'Producto eliminado exitosamente');
     }
 }

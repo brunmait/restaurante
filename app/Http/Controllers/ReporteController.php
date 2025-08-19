@@ -13,7 +13,30 @@ class ReporteController extends Controller
 {
     public function panel()
     {
-        return view('admin.panel');
+        $stats = [
+            'productos' => Producto::count(),
+            'cajeros' => \App\Models\User::where('rol', 'cajero')->count(),
+            'ventas' => \App\Models\Venta::count(),
+            'reportes' => Reporte::count(),
+            'ventas_hoy' => \App\Models\Venta::whereDate('created_at', today())->count(),
+            'ingresos_total' => \App\Models\Venta::sum('total'),
+            'productos_bajo_stock' => Producto::where('stock', '<', 10)->count()
+        ];
+        
+        return view('admin.panel', compact('stats'));
+    }
+    
+    public function getStats()
+    {
+        return response()->json([
+            'productos' => Producto::count(),
+            'cajeros' => \App\Models\User::where('rol', 'cajero')->count(),
+            'ventas' => \App\Models\Venta::count(),
+            'reportes' => Reporte::count(),
+            'ventas_hoy' => \App\Models\Venta::whereDate('created_at', today())->count(),
+            'ingresos_total' => \App\Models\Venta::sum('total'),
+            'productos_bajo_stock' => Producto::where('stock', '<', 10)->count()
+        ]);
     }
 
     public function productos()
